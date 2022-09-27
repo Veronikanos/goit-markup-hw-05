@@ -8,6 +8,7 @@
 	--secondary-bg-color: #F5F4FA;
 	--icon-color: #AFB1B8;
 	--icon-background-color: rgba(255, 255, 255, 0.1);
+	--border-nav-color: #ECECEC;
 }
 
 html {
@@ -54,7 +55,7 @@ a {
 }
 
 header {
-	border-bottom: 1px solid var(--secondary-bg-color);
+	border-bottom: 1px solid var(--border-nav-color);
 }
 
 .container {
@@ -72,8 +73,6 @@ header {
 	display: flex;
 	align-items: center;
 }
-
-
 
 .logo {
 	font-family: 'Raleway', sans-serif;
@@ -119,7 +118,7 @@ header {
 	padding-bottom: 32px;
 	display: inline-flex;
 	align-items: center;
-
+	transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1)
 }
 
 .nav-links .nav-link:not(:last-child) {
@@ -130,24 +129,36 @@ header {
 	margin-left: auto;
 }
 
-/* .nav-bar .nav-link a {
-	transition: transition 250ms linear;
+.nav-links a::after,
+.nav-links .active::after {
+	content: '';
+	position: absolute;
+	bottom: -1px;
+	background-color: var(--highlighted-color);
+	display: block;
+	height: 4px;
+	width: 100%;
+	border-radius: 4px;
+	opacity: 0;
+	transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.nav-bar .nav-link a:hover{
+.nav-links .active::after {
 
-} */
+	opacity: 1;
+}
 
-
-.active::after {
+.nav-links a:hover::after {
 	content: '';
 	position: absolute;
 	background-color: var(--highlighted-color);
 	height: 4px;
-	width: 100%;
-	bottom: 0;
+	bottom: -1px;
 	border-radius: 4px;
+	opacity: 1;
 }
+
+
 
 .nav-contacts a,
 .team-text {
@@ -166,6 +177,7 @@ header {
 
 .hero {
 	max-width: 1600px;
+	height: 600px;
 	margin: 0 auto;
 	text-align: center;
 	padding: 200px 0;
