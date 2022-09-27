@@ -114,10 +114,12 @@ header {
 }
 
 .nav-links a {
+	position: relative;
 	padding-top: 32px;
 	padding-bottom: 32px;
 	display: inline-flex;
 	align-items: center;
+
 }
 
 .nav-links .nav-link:not(:last-child) {
@@ -126,6 +128,25 @@ header {
 
 .nav-links.nav-contacts {
 	margin-left: auto;
+}
+
+/* .nav-bar .nav-link a {
+	transition: transition 250ms linear;
+}
+
+.nav-bar .nav-link a:hover{
+
+} */
+
+
+.active::after {
+	content: '';
+	position: absolute;
+	background-color: var(--highlighted-color);
+	height: 4px;
+	width: 100%;
+	bottom: 0;
+	border-radius: 4px;
 }
 
 .nav-contacts a,
