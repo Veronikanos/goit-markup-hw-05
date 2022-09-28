@@ -16,6 +16,7 @@
 </head>
 
 <body>
+
 	<header>
 		<div class="container main-nav">
 			<nav class="nav-bar">
@@ -50,8 +51,10 @@
 		<section class="hero">
 			<div class="container container-hero">
 				<h1>Ефективні рішення для вашого бізнесу</h1>
-				<button aria-label="Замовити послугу" class="hero-button" type="button">Замовити послугу</button>
+				<button data-modal-open aria-label="Замовити послугу" class="hero-button" type="button">Замовити
+					послугу</button>
 			</div>
+
 		</section>
 		<section class="preferences section">
 			<div class="container">
@@ -105,11 +108,15 @@
 				<h2 class="section-headers">Чим ми займаємося</h2>
 				<ul class="list works-pictures">
 					<li class="works-picture"><img src=" ./images/typing.jpg" alt="друк на клавіатурі" width="300">
-						<span>Десктопні додатки</span></li>
-					<li class="works-picture"><img src="./images/smartphone.jpg" alt="смартфон та ноутбук"
-							width="300"><span>Мобільні додатки</span></li>
+						<p>Десктопні додатки</p>
+					</li>
+					<li class="works-picture"><img src="./images/smartphone.jpg" alt="смартфон та ноутбук" width="300">
+						<p>Мобільні додатки</p>
+					</li>
 					<li class="works-picture"><img src="./images/pick_color_on_tablet.jpg" alt="дизайнер обирає колір на планшеті"
-							width="300"><span>Дизайнерські рішення</span></li>
+							width="300">
+						<p>Дизайнерські рішення</p>
+					</li>
 				</ul>
 			</div>
 		</section>
@@ -365,6 +372,16 @@
 			</div>
 		</div>
 	</footer>
+	<div class="backdrop is-hidden" data-modal>
+		<div class="modal">
+			<button class="close-button" data-modal-close>
+				<svg width="11px" height="11px">
+					<use href="./images/symbol-defs.svg#icon-vector"></use>
+				</svg>
+			</button>
+		</div>
+	</div>
+	<script src="./js/modal.js"></script>
 </body>
 
 </html>

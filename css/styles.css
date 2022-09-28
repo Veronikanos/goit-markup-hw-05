@@ -10,6 +10,7 @@
 	--icon-background-color: rgba(255, 255, 255, 0.1);
 	--border-nav-color: #ECECEC;
 	--overlay-color: rgba(47, 48, 58, 0.8);
+	--backdrop-color: rgba(0, 0, 0, 0.3);
 }
 
 html {
@@ -204,7 +205,6 @@ header {
 
 .hero-button {
 	padding: 10px 32px;
-
 	color: var(--white-color);
 	background-color: var(--highlighted-color);
 	font-weight: 700;
@@ -215,6 +215,64 @@ header {
 	font-family: inherit;
 	border-color: transparent;
 	border-radius: 4px;
+	cursor: pointer;
+}
+
+.backdrop {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+
+	background-color: var(--backdrop-color);
+	opacity: 1;
+	transition-property: opacity, background-color;
+	transition-duration: 250ms;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+	;
+	visibility: visible;
+}
+
+.backdrop.is-hidden {
+	opacity: 0;
+	visibility: hidden;
+	pointer-events: none;
+}
+
+.modal {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	min-width: 528px;
+	min-height: 581px;
+	/* z-index: 1; */
+	background-color: var(--white-color);
+	border-radius: 4px;
+	box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.close-button {
+	position: absolute;
+	right: 8px;
+	top: 8px;
+	width: 30px;
+	height: 30px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: var(--white-color);
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	border-radius: 50%;
+	cursor: pointer;
+	transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.close-button:hover,
+.close-button:focus {
+	fill: var(--highlighted-color);
+
 }
 
 .visually-hidden {
@@ -264,7 +322,7 @@ header {
 	position: relative;
 }
 
-.works-picture span {
+.works-picture p {
 	position: absolute;
 	bottom: 0;
 	width: 100%;
@@ -276,10 +334,6 @@ header {
 	font-weight: 700;
 	text-transform: uppercase;
 	color: var(--white-color);
-}
-
-.works-picture::after span {
-	position: absolute;
 }
 
 .works-picture:not(:last-child),
@@ -363,6 +417,9 @@ header {
 	align-items: center;
 	justify-content: center;
 	fill: var(--icon-color);
+	transition-property: fill, background-color;
+	transition-duration: 250ms;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .social-icon:hover,
@@ -393,6 +450,9 @@ header {
 	fill: var(--icon-color);
 	border: 1px solid var(--icon-color);
 	border-radius: 4px;
+	transition-property: fill, background-color;
+	transition-duration: 250ms;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .clients-links:hover,
@@ -481,7 +541,7 @@ address {
 
 .gallery-text:hover,
 .gallery-text:focus {
-	background: var(--highlighted-color);
+	background-color: var(--highlighted-color);
 	color: var(--white-color);
 }
 
@@ -496,12 +556,12 @@ address {
 	width: 370px;
 }
 
-.backdrop {
+.overlay-card {
 	position: relative;
 	overflow: hidden;
 }
 
-.backdrop p {
+.overlay-card p {
 	display: flex;
 	position: absolute;
 	top: 0;
@@ -518,7 +578,7 @@ address {
 	align-items: center;
 }
 
-.projects-card:hover .backdrop p {
+.projects-card:hover .overlay-card p {
 	transform: translateY(0%);
 }
 
